@@ -4,6 +4,7 @@ import (
 	"flag"
 	"log"
 	"os"
+	"sync"
 	"time"
 
 	"github.com/comail/colog"
@@ -43,8 +44,16 @@ func main() {
 		os.Exit(1)
 	}
 	changeProcessTitle(c)
-	go openTcpPorts(c)
-	go openUdpPorts(c)
-	wait60Seconds()
-	log.Printf("info: completed")
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func(c Config) {
+		defer wg.Done()
+		openTcpPorts(c)
+	}(c)
+	wg.Add(1)
+	go func(c Config) {
+		defer wg.Done()
+		openUdpPorts(c)
+	}(c)
+	wg.Wait()
 }
