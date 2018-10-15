@@ -7,3 +7,7 @@ tcp_ports:
 udp_ports:
   - 8000
   - 8080
+random_tcp:
+  false
+random_udp:
+  false

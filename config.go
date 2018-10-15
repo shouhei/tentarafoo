@@ -11,6 +11,8 @@ type Config struct {
 	ProcessTitle string `yaml:"process_title"`
 	TcpPorts     []int  `yaml:"tcp_ports"`
 	UdpPorts     []int  `yaml:"udp_ports"`
+	RandomTcp    bool   `yaml:"random_tcp"`
+	RandomUdp    bool   `yaml:"random_udp"`
 }
 
 func getDefaultConfig() Config {
@@ -18,6 +20,8 @@ func getDefaultConfig() Config {
 		ProcessTitle: "tentarafoo",
 		TcpPorts:     []int{},
 		UdpPorts:     []int{},
+		RandomTcp:    false,
+		RandomUdp:    false,
 	}
 }
 
