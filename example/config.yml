@@ -2,12 +2,8 @@
 process_title:
   httpd
 tcp_ports:
-  - 8000
-  - 8080
 udp_ports:
-  - 8000
-  - 8080
-random_tcp:
-  false
-random_udp:
-  false
+random_tcp_ports:
+  true
+random_udp_ports:
+  true

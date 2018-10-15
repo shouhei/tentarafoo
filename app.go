@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"log"
+	"math/rand"
 	"os"
 	"sync"
 	"time"
@@ -45,14 +46,25 @@ func main() {
 	}
 	changeProcessTitle(c)
 	var wg sync.WaitGroup
+	rand.Seed(time.Now().UnixNano())
 	wg.Add(1)
 	go func(c Config) {
 		defer wg.Done()
+		if len(c.TcpPorts) == 0 && c.RandomTcpPorts {
+			for i := 0; i < 10; i++ {
+				c.TcpPorts = append(c.TcpPorts, (rand.Intn(48127) + 1024))
+			}
+		}
 		openTcpPorts(c)
 	}(c)
 	wg.Add(1)
 	go func(c Config) {
 		defer wg.Done()
+		if len(c.UdpPorts) == 0 && c.RandomUdpPorts {
+			for i := 0; i < 10; i++ {
+				c.UdpPorts = append(c.UdpPorts, (rand.Intn(48127) + 1024))
+			}
+		}
 		openUdpPorts(c)
 	}(c)
 	wg.Wait()

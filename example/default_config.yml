@@ -3,3 +3,5 @@ process_title:
   tentarafoo
 tcp_ports:
 udp_ports:
+random_tcp_ports:
+random_udp_ports:
