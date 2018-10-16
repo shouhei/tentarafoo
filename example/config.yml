@@ -4,6 +4,10 @@ process_title:
 tcp_ports:
 udp_ports:
 random_tcp_ports:
-  true
+  false
 random_udp_ports:
+  false
+show_stdout_fake_logs:
+  true
+burst_stdout_fake_log:
   true

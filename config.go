@@ -8,20 +8,24 @@ import (
 )
 
 type Config struct {
-	ProcessTitle   string `yaml:"process_title"`
-	TcpPorts       []int  `yaml:"tcp_ports"`
-	UdpPorts       []int  `yaml:"udp_ports"`
-	RandomTcpPorts bool   `yaml:"random_tcp_ports"`
-	RandomUdpPorts bool   `yaml:"random_udp_ports"`
+	ProcessTitle       string `yaml:"process_title"`
+	TcpPorts           []int  `yaml:"tcp_ports"`
+	UdpPorts           []int  `yaml:"udp_ports"`
+	RandomTcpPorts     bool   `yaml:"random_tcp_ports"`
+	RandomUdpPorts     bool   `yaml:"random_udp_ports"`
+	ShowStdoutFakeLogs bool   `yaml:"show_stdout_fake_logs"`
+	BurstStdoutFakeLog bool   `yaml:"burst_stdout_fake_log"`
 }
 
 func getDefaultConfig() Config {
 	return Config{
-		ProcessTitle:   "tentarafoo",
-		TcpPorts:       []int{},
-		UdpPorts:       []int{},
-		RandomTcpPorts: false,
-		RandomUdpPorts: false,
+		ProcessTitle:       "tentarafoo",
+		TcpPorts:           []int{},
+		UdpPorts:           []int{},
+		RandomTcpPorts:     false,
+		RandomUdpPorts:     false,
+		ShowStdoutFakeLogs: false,
+		BurstStdoutFakeLog: false,
 	}
 }
 

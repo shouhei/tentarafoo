@@ -67,5 +67,14 @@ func main() {
 		}
 		openUdpPorts(c)
 	}(c)
+	if c.ShowStdoutFakeLogs {
+		for i := 0; i < 10; i++ {
+			wg.Add(1)
+			go func(c Config) {
+				defer wg.Done()
+				showStdoutFakeLogs(c)
+			}(c)
+		}
+	}
 	wg.Wait()
 }
