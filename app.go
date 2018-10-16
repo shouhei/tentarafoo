@@ -5,6 +5,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"runtime"
 	"sync"
 	"time"
 
@@ -44,6 +45,8 @@ func main() {
 		log.Printf("error: failed to load config file")
 		os.Exit(1)
 	}
+	cpus := runtime.NumCPU()
+	runtime.GOMAXPROCS(cpus)
 	changeProcessTitle(c)
 	var wg sync.WaitGroup
 	rand.Seed(time.Now().UnixNano())
@@ -68,7 +71,7 @@ func main() {
 		openUdpPorts(c)
 	}(c)
 	if c.ShowStdoutFakeLogs {
-		for i := 0; i < 10; i++ {
+		for i := 0; i < runtime.NumCPU(); i++ {
 			wg.Add(1)
 			go func(c Config) {
 				defer wg.Done()
