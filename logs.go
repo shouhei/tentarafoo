@@ -17,14 +17,15 @@ func showStdoutFakeLogs(c Config) {
 		"error",
 		"alert",
 	}
+	log_level_len := len(log_levels)
 	rand.Seed(time.Now().UnixNano())
 	if c.BurstStdoutFakeLog {
 		for {
-			log.Printf(log_levels[rand.Intn(6)] + ": " + gofakeit.HackerPhrase())
+			log.Printf(log_levels[rand.Intn(log_level_len)] + ": " + gofakeit.HackerPhrase())
 		}
 	} else {
 		for {
-			log.Printf(log_levels[rand.Intn(6)] + ": " + gofakeit.HackerPhrase())
+			log.Printf(log_levels[rand.Intn(log_level_len)] + ": " + gofakeit.HackerPhrase())
 			time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
 		}
 	}
