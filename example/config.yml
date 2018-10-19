@@ -1,6 +1,6 @@
 ---
 process_title:
-  httpd
+  tentarafoo
 tcp_ports:
 udp_ports:
 random_tcp_ports:
@@ -8,6 +8,8 @@ random_tcp_ports:
 random_udp_ports:
   false
 show_stdout_fake_logs:
-  true
+  false
 burst_stdout_fake_log:
+  false
+inode_exhaustion:
   true

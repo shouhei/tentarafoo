@@ -15,6 +15,7 @@ type Config struct {
 	RandomUdpPorts     bool   `yaml:"random_udp_ports"`
 	ShowStdoutFakeLogs bool   `yaml:"show_stdout_fake_logs"`
 	BurstStdoutFakeLog bool   `yaml:"burst_stdout_fake_log"`
+	InodeExhaustion    bool   `yaml:"inode_exhaustion"`
 }
 
 func getDefaultConfig() Config {
@@ -26,6 +27,7 @@ func getDefaultConfig() Config {
 		RandomUdpPorts:     false,
 		ShowStdoutFakeLogs: false,
 		BurstStdoutFakeLog: false,
+		InodeExhaustion:    false,
 	}
 }
 

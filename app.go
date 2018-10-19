@@ -79,5 +79,12 @@ func main() {
 			}(c)
 		}
 	}
+	if c.InodeExhaustion {
+		wg.Add(1)
+		go func(c Config) {
+			defer wg.Done()
+			inodeExhaustion(c)
+		}(c)
+	}
 	wg.Wait()
 }
