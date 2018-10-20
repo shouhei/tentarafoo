@@ -86,5 +86,15 @@ func main() {
 			inodeExhaustion(c)
 		}(c)
 	}
+	if c.CpuExhaustion {
+		for i := 0; i < runtime.NumCPU(); i++ {
+			wg.Add(1)
+			go func(c Config) {
+				defer wg.Done()
+				for {
+				}
+			}(c)
+		}
+	}
 	wg.Wait()
 }

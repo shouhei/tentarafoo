@@ -12,4 +12,6 @@ show_stdout_fake_logs:
 burst_stdout_fake_log:
   false
 inode_exhaustion:
+  false
+cpu_exhaustion:
   true
