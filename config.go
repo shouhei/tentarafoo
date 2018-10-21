@@ -17,6 +17,7 @@ type Config struct {
 	BurstStdoutFakeLog bool   `yaml:"burst_stdout_fake_log"`
 	InodeExhaustion    bool   `yaml:"inode_exhaustion"`
 	CpuExhaustion      bool   `yaml:"cpu_exhaustion"`
+	MemoryExhaustion   bool   `yaml:"memory_exhaustion"`
 }
 
 func getDefaultConfig() Config {
@@ -30,6 +31,7 @@ func getDefaultConfig() Config {
 		BurstStdoutFakeLog: false,
 		InodeExhaustion:    false,
 		CpuExhaustion:      false,
+		MemoryExhaustion:   false,
 	}
 }
 

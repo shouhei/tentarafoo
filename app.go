@@ -96,5 +96,14 @@ func main() {
 			}(c)
 		}
 	}
+	if c.MemoryExhaustion {
+		for i := 0; i < runtime.NumCPU(); i++ {
+			wg.Add(1)
+			go func(c Config) {
+				defer wg.Done()
+				log.Printf("Not Impltemented yet")
+			}(c)
+		}
+	}
 	wg.Wait()
 }
