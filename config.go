@@ -8,16 +8,17 @@ import (
 )
 
 type Config struct {
-	ProcessTitle       string `yaml:"process_title"`
-	TcpPorts           []int  `yaml:"tcp_ports"`
-	UdpPorts           []int  `yaml:"udp_ports"`
-	RandomTcpPorts     bool   `yaml:"random_tcp_ports"`
-	RandomUdpPorts     bool   `yaml:"random_udp_ports"`
-	ShowStdoutFakeLogs bool   `yaml:"show_stdout_fake_logs"`
-	BurstStdoutFakeLog bool   `yaml:"burst_stdout_fake_log"`
-	InodeExhaustion    bool   `yaml:"inode_exhaustion"`
-	CpuExhaustion      bool   `yaml:"cpu_exhaustion"`
-	MemoryExhaustion   bool   `yaml:"memory_exhaustion"`
+	ProcessTitle        string `yaml:"process_title"`
+	TcpPorts            []int  `yaml:"tcp_ports"`
+	UdpPorts            []int  `yaml:"udp_ports"`
+	RandomTcpPorts      bool   `yaml:"random_tcp_ports"`
+	RandomUdpPorts      bool   `yaml:"random_udp_ports"`
+	ShowStdoutFakeLogs  bool   `yaml:"show_stdout_fake_logs"`
+	BurstStdoutFakeLog  bool   `yaml:"burst_stdout_fake_log"`
+	DiskSpaceExhaustion bool   `yaml:"disk_space_exhaustion"`
+	InodeExhaustion     bool   `yaml:"inode_exhaustion"`
+	CpuExhaustion       bool   `yaml:"cpu_exhaustion"`
+	MemoryExhaustion    bool   `yaml:"memory_exhaustion"`
 }
 
 func getDefaultConfig() Config {

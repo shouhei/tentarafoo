@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"math/rand"
 	"os"
@@ -84,6 +85,25 @@ func main() {
 		go func(c Config) {
 			defer wg.Done()
 			inodeExhaustion(c)
+		}(c)
+	}
+	if c.DiskSpaceExhaustion {
+		wg.Add(1)
+		go func(c Config) {
+			defer wg.Done()
+			file, err := os.OpenFile("./tempfile", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			defer file.Close()
+			output := "\x00"
+			for {
+				_, err = fmt.Fprint(file, output)
+				if err != nil {
+					log.Printf("error: cant write file.")
+				}
+			}
 		}(c)
 	}
 	if c.CpuExhaustion {

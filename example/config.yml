@@ -16,4 +16,6 @@ inode_exhaustion:
 cpu_exhaustion:
   false
 memory_exhaustion:
+  false
+disk_space_exhaustion:
   true
